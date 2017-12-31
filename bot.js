@@ -7,6 +7,13 @@ const connector = new builder.ChatConnector({
 
 
 // set up default dialog to use QnA Maker
-const bot = new builder.UniversalBot(connector, require('./qnadialog.js'));
+const bot = new builder.UniversalBot(connector,
+    [
+    function (session) {
+        builder.Prompts.text(session, "Hola, soy un Robot para contestar preguntas sobre nuestro producto crédito hipotecario, ¿En que te puedo ayudar? ");
+    },
+    require('./qnadialog.js')
+    ]);
+
 
 module.exports = bot;
