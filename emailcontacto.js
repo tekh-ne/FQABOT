@@ -21,6 +21,7 @@ nodemailer.createTestAccount((err, account) => {
     });
 
     // setup email data with unicode symbols
+    session.send(`en emailcontacto.js `);
     let mailOptions = {
         from: '"Carlos Aguilar" <carlos_aguilar_ch@yahoo.com>', // sender address
         to: `carlos_aguilar_ch@yahoo.com, caguilarplay@gmail.com , ${emailcontacto}`, // list of receivers
