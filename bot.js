@@ -16,7 +16,7 @@ bot.on('conversationUpdate', function (message) {
             if (identity.id === message.address.bot.id) {
                 bot.send(new builder.Message()
                     .address(message.address)
-                    .text("Hola, soy un Robot para contestar preguntas sobre nuestro producto crédito hipotecario, ¿En que te puedo ayudar? "));
+                    .text("Hola, soy un asistente digital para contestar preguntas sobre nuestro producto crédito hipotecario, ¿En que te puedo ayudar? "));
             }
         });
     }
