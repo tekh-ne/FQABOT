@@ -7,9 +7,6 @@ const request = require('request');
 
 
 
-
-
-
 module.exports = (session, args, next) => {
     session.sendTyping();
     const question = session.message.text;
