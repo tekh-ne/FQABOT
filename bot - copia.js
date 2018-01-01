@@ -1,5 +1,3 @@
-
-
 const builder = require('botbuilder');
 
 const connector = new builder.ChatConnector({
@@ -62,10 +60,6 @@ bot.dialog('MasInfo', [
     matches: /^MasInfo$/i,
    // "
 });
-
-
-
-
 
 module.exports = bot;
 
