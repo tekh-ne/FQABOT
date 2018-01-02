@@ -31,3 +31,4 @@ module.exports = (session, args, next) => {
     }).setHeader('Ocp-Apim-Subscription-Key', process.env.SUBSCRIPTION_KEY);
 };
 
+

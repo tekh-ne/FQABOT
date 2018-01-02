@@ -1,11 +1,13 @@
 
 
 const builder = require('botbuilder');
+const mensaje = require('./emailcontacto');
 
 const connector = new builder.ChatConnector({
     appId: process.env.MICROSOFT_APP_ID,
     appPassword: process.env.MICROSOFT_APP_PASSWORD
 });
+
 
 
 // set up default dialog to use QnA Maker
@@ -46,16 +48,13 @@ bot.dialog('MasInfo', [
     function (session, results) {
         
         session.dialogData.tema = results.response;
-        session.sendTyping();
-        // 
+                // 
         session.send(`Datos de Contacto Nombre:  ${session.dialogData.nombre}<br/> Email: ${session.dialogData.email} `);
         session.send(`Tema:  ${session.dialogData.tema} `);
-        session.sendTyping();
-        nombrecontacto = session.dialogData.nombre; emailcontacto = session.dialogData.email;
-        telefonocontacto = session.dialogData.telefono; temacontacto=session.dialogData.tema;
-        require('./emailcontacto.js');
-        session.send(`fin de contacto`);
+        mensaje.correoenviado(session.dialogData.nombre, session.dialogData.emai,session.dialogData.telefono,session.dialogData.tema);
+        session.send(`fin de contacto   `);
         session.endDialog();
+         
     }
 ])
 .triggerAction({
@@ -64,8 +63,4 @@ bot.dialog('MasInfo', [
 });
 
 
-
-
-
 module.exports = bot;
-
