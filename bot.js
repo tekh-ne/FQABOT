@@ -51,7 +51,7 @@ bot.dialog('MasInfo', [
                 // 
         session.send(`Datos de Contacto Nombre:  ${session.dialogData.nombre}<br/> Email: ${session.dialogData.email} `);
         session.send(`Tema:  ${session.dialogData.tema} `);
-        mensaje.correoenviado(session.dialogData.nombre, session.dialogData.emai,session.dialogData.telefono,session.dialogData.tema);
+        mensaje.correoenviado(session.dialogData.nombre, session.dialogData.email,session.dialogData.telefono,session.dialogData.tema);
         session.send(`fin de contacto   `);
         session.endDialog();
          
