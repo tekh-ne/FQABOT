@@ -30,7 +30,7 @@ bot.on('conversationUpdate', function (message) {
 bot.dialog('MasInfo', [
     function (session) {
         session.send("Gracias por permitirnos contactarle!.");
-        builder.Prompts.text(session, "Cuál es su nombre2");        
+        builder.Prompts.text(session, "Cuál es su nombre");        
     },
     function (session, results ) {
         session.dialogData.nombre = results.response;
@@ -62,40 +62,5 @@ bot.dialog('MasInfo', [
    // "
 });
 
-
-bot.dialog('#Demo', [
-    function (session) {
-        session.send("Entrando al modo demo, te mostrare algunas de nuestras capacidades");
-        builder.Prompts.text(session, "Cuál es su nombre");        
-    },
-    function (session, results ) {
-        session.dialogData.nombre = results.response;
-        builder.Prompts.text(session, "Cuál es su correo:");       
-        
-    },
-    function (session, results) {
-        session.dialogData.email = results.response;
-        builder.Prompts.text (session, "Cuál es su teléfono de contacto?");        
-    },
-    function (session, results) {
-        session.dialogData.telefono = results.response;
-        builder.Prompts.text (session, "Qué tema le interesa?");        
-    },
-    function (session, results) {
-        
-        session.dialogData.tema = results.response;
-                // 
-        session.send(`Datos de Contacto Nombre:  ${session.dialogData.nombre}<br/> Email: ${session.dialogData.email} `);
-        session.send(`Tema:  ${session.dialogData.tema} `);
-        mensaje.correoenviado(session.dialogData.nombre, session.dialogData.email,session.dialogData.telefono,session.dialogData.tema);
-        session.send(`fin de contacto   `);
-        session.endDialog();
-         
-    }
-])
-.triggerAction({
-    matches: /^#Demo$/i,
-   // "
-});
 
 module.exports = bot;
